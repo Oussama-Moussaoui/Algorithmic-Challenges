@@ -11,4 +11,4 @@ Output: 1`
 # Source:
 From LEETCODE, link: https://leetcode.com/problems/sum-of-two-integers/
 # Difficulty/ How I found it:
-Learn about bitwise operators (https://www.programiz.com/c-programming/bitwise-operators), before trying to do it.
+Learn about bitwise operators (https://www.programiz.com/c-programming/bitwise-operators), and basic recursion, before trying to do it.
