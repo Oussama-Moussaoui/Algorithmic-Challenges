@@ -40,6 +40,28 @@ for (let i = 0; i < edges; i++) {
     graph[to][from] = weight;
 }
 
+// printGraph(graph);
+// console.log(getPaths(graph, 0, [0]));
+// console.log(getPaths(graph, 3, [0, 3]));
+// console.log(getPaths(graph, 1, [0, 1]));
+
+// Concatination
+const phase_1 = getPaths(graph, 0, [0]);
+const paths = [];
+
+for (let i = 0; i < phase_1.length; i++) {
+    const phase_2 = getPaths(graph, phase_1[i][1], [0, phase_1[i][1]]);
+    console.log('--', i, '- phase 2:', phase_2);
+
+    if (phase_2) {
+        for (let j = 0; j < phase_2.length; j++) {
+            paths.push(phase_1[i].concat(phase_2[j]));
+        }
+    }
+}
+
+console.log(paths);
+
 // Helper Functions
 function printGraph(graph) {
     for (let i = 0; i < graph.length; i++) {
@@ -49,4 +71,20 @@ function printGraph(graph) {
         }
         console.log(matrixLine);
     }
+}
+
+function getPaths(graph, rootNode, nodesToIgnore) {
+    // Getting all paths that starts from the rootNode (the first node in our case)
+    const len = graph.length;
+    const paths = [];
+    for (let i = 0; i < len; i++) {
+        if (graph[rootNode][i] !== 0 && !nodesToIgnore.includes(i)) {
+            const path = [rootNode];
+            path.push(i);
+            paths.push(path);
+        }
+    }
+
+    if (paths.length) return paths;
+    if (!paths.length) return false;
 }
