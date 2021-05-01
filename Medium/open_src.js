@@ -40,12 +40,13 @@ for (let i = 0; i < edges; i++) {
     graph[to][from] = weight;
 }
 
-// // Print Graph
-// for (let i = 0; i < graph.length; i++) {
-//     let matrixLine = '';
-//     for (let j = 0; j < graph.length; j++) {
-//         matrixLine = matrixLine + ' ' + graph[i][j];
-//     }
-//     console.log(matrixLine);
-// }
-// // End Print Graph
+// Helper Functions
+function printGraph(graph) {
+    for (let i = 0; i < graph.length; i++) {
+        let matrixLine = '';
+        for (let j = 0; j < graph.length; j++) {
+            matrixLine = matrixLine + ' ' + graph[i][j];
+        }
+        console.log(matrixLine);
+    }
+}
